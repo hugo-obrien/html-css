@@ -1,0 +1,84 @@
+// =============================================================
+//  Базовые стили: reset-минимум + типографика
+// =============================================================
+
+@use 'variables' as *;
+@use 'functions' as *;
+@use 'sass:color';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: $font-body;
+  font-size: rem(17px);
+  line-height: 1.6;
+  color: $color-text;
+  background: $color-bg;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba($color-accent-2, 0.12), transparent 45%),
+    radial-gradient(circle at 80% 90%, rgba($color-blood, 0.10), transparent 50%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-display;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $color-text;
+  margin: 0 0 $space-3;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+
+p {
+  margin: 0 0 $space-4;
+}
+
+a {
+  color: $color-accent;
+  text-decoration: none;
+  transition: color $transition;
+
+  &:hover {
+    color: color.adjust($color-accent, $lightness: 10%);
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: rgba($color-accent, 0.35);
+  color: $color-text;
+}
+
+// Скрытие визуально, но доступно скринридерам.
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

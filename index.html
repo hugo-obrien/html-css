@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Кровь и Мёд — партийная RPG о заблудшем друиде</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description"
+        content="Кровь и Мёд — классическая партийная изометрическая RPG в реальном времени с активной паузой. Глубокая система прокачки, разветвлённые диалоги и мир, который помнит твой выбор.">
+
+  <meta property="og:title" content="Кровь и Мёд — партийная RPG">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/USERNAME/REPO/">
+  <meta property="og:image" content="img/hero-main.jpg">
+  <meta property="og:image:alt" content="Арт игры Кровь и Мёд">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Nunito+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0d0a14">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#hero">
+      <span class="brand-logo" aria-hidden="true">✦</span>
+      <span>Кровь и&nbsp;Мёд</span>
+    </a>
+
+    <button class="burger" id="nav-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <ul class="menu" id="main-menu">
+        <li><a class="menu-link" href="#about">Об игре</a></li>
+        <li><a class="menu-link" href="#world">Мир</a></li>
+        <li><a class="menu-link" href="#system">Система</a></li>
+        <li><a class="menu-link" href="#media">Медиа</a></li>
+        <li><a class="menu-link" href="#demo">Демо</a></li>
+        <li><a class="menu-link" href="#contact">Вопросы</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero" id="hero" aria-label="Главный экран">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <p class="hero-eyebrow">Партийная RPG · Изометрия · Magicpunk</p>
+      <h1 class="hero-title">Кровь и&nbsp;Мёд</h1>
+      <p class="hero-subtitle">Странствующий друид, три наёмника и одна очень неправильная порция зелья. Мир ещё не
+        знает, что его спасёт компания неудачников.</p>
+      <div class="hero-actions">
+        <a class="btn btn--magic cta-pulse" href="#demo">Играть демо-прокачку</a>
+        <a class="btn btn--ghost" href="#media">Смотреть арты</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Об игре -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-kicker">Что это</span>
+        <h2 id="about-title">Классика жанра, доведённая до абсурда</h2>
+        <p class="section-sub">Основа — проверенная временем формула партийных RPG, приправленная тэш-фэнтези и
+          кельтской мифологией.</p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card card--feature reveal">
+          <span class="card-icon" aria-hidden="true">⏱</span>
+          <h3 class="card-title">Бой в реальном времени</h3>
+          <p class="card-text">Сражения идут на изометрической арене. Жми на паузу, раздавай приказы, строй комбинации —
+            и смотри, как всё идёт не по плану.</p>
+        </article>
+
+        <article class="card card--feature reveal">
+          <span class="card-icon" aria-hidden="true">⚗</span>
+          <h3 class="card-title">Что используешь — то и качаешь</h3>
+          <p class="card-text">Никаких фиксированных классов. Тысячи раз метнул кинжал — стал лучше метать кинжалы. Так
+            растёшь ты, а не таблица опыта.</p>
+        </article>
+
+        <article class="card card--feature reveal">
+          <span class="card-icon" aria-hidden="true">💬</span>
+          <h3 class="card-title">Диалоги с последствиями</h3>
+          <p class="card-text">Каждая реплика — развилка. Каждый выбор меняет репутацию, отношение фракций и даже
+            сюжетные ветки. Слова здесь — оружие.</p>
+        </article>
+
+        <article class="card card--feature reveal">
+          <span class="card-icon" aria-hidden="true">🗺</span>
+          <h3 class="card-title">Живой реагирующий мир</h3>
+          <p class="card-text">Сожжёшь деревню — её восстановят, но будут помнить. В Крови и Мёде ты оставляешь след,
+            который остаётся до финала.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Мир -->
+  <section class="section section-alt" id="world" aria-labelledby="world-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-kicker">Сеттинг</span>
+        <h2 id="world-title">Позднее средневековье на магическом топливе</h2>
+        <p class="section-sub">Кельтские легенды работают от маны, церковь объявила магию ересью, а в трактирах спорят,
+          чьё пиво полезнее для печени. Выбери, на чьей стороне играть.</p>
+      </div>
+
+      <div class="tabs" id="factions" role="tablist" aria-label="Фракции мира">
+        <div class="tabs-list">
+          <button class="tabs-btn" role="tab" id="tab-druids" aria-selected="true" aria-controls="panel-druids">Друиды
+          </button>
+          <button class="tabs-btn" role="tab" id="tab-hive" aria-selected="false" aria-controls="panel-hive">Орден
+            Мёда
+          </button>
+          <button class="tabs-btn" role="tab" id="tab-court" aria-selected="false" aria-controls="panel-court">Железный
+            двор
+          </button>
+          <button class="tabs-btn" role="tab" id="tab-blood" aria-selected="false" aria-controls="panel-blood">Кровавый
+            культ
+          </button>
+        </div>
+
+        <div class="tabs-panel tabs-panel--active" id="panel-druids" role="tabpanel" aria-labelledby="tab-druids">
+          <figure class="tabs-media">
+            <img src="img/faction-druids.jpeg" alt="Друиды — хранители старой магии" loading="lazy">
+          </figure>
+          <div class="tabs-body">
+            <h3>Хранители старой магии</h3>
+            <p>Слушают деревья, спорят с ветром и твердо верят, что всё живое должно остаться живым. Проблема в том, что
+              «живое» они трактуют очень широко.</p>
+          </div>
+        </div>
+
+        <div class="tabs-panel" id="panel-hive" role="tabpanel" aria-labelledby="tab-hive">
+          <figure class="tabs-media">
+            <img src="img/faction-hive.jpg" alt="Торговый Орден Мёда за работой" loading="lazy">
+          </figure>
+          <div class="tabs-body">
+            <h3>Торговый Орден Мёда</h3>
+            <p>Алхимики-предприниматели, которые продают чудо-зелья оптом и в розницу. Никто не знает точный состав,
+              зато все знают цену. Очень выгодно, очень подозрительно.</p>
+          </div>
+        </div>
+
+        <div class="tabs-panel" id="panel-court" role="tabpanel" aria-labelledby="tab-court">
+          <figure class="tabs-media">
+            <img src="img/faction-iron-court.jpg" alt="Железный двор — инквизиция и порядок" loading="lazy">
+          </figure>
+          <div class="tabs-body">
+            <h3>Железный двор</h3>
+            <p>Церковь, армия и инквизиция в одном флаконе. Магия запрещена, колдунов жгут, порядок наводят мечом. Но
+              иногда даже им приходится просить друида о помощи.</p>
+          </div>
+        </div>
+
+        <div class="tabs-panel" id="panel-blood" role="tabpanel" aria-labelledby="tab-blood">
+          <figure class="tabs-media">
+            <img src="img/faction-cult.jpg" alt="Кровавый культ во время ритуала" loading="lazy">
+          </figure>
+          <div class="tabs-body">
+            <h3>Кровавый культ</h3>
+            <p>Не просто тёмный культ, а тёмный культ с бизнес-планом. Жертвоприношения по расписанию, членские взносы,
+              дресс-код. Не смеяться на ритуале — обязательное условие.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="system" aria-labelledby="system-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-kicker">Геймплей</span>
+        <h2 id="system-title">Сколько усилий — столько навыков</h2>
+        <p class="section-sub">Система растёт из действий. Ниже — базовая структура атрибутов и механики, раскрытые по
+          клику.</p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card reveal">
+          <h3 class="card-title">Базовые атрибуты</h3>
+          <table class="feature-table">
+            <thead>
+            <tr>
+              <th>Атрибут</th>
+              <th>Что даёт</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Сила</td>
+              <td>Урон оружием ближнего боя</td>
+            </tr>
+            <tr>
+              <td>Ловкость</td>
+              <td>Уклонение и скорость атаки</td>
+            </tr>
+            <tr>
+              <td>Интеллект</td>
+              <td>Магия и скорость обучения</td>
+            </tr>
+            <tr>
+              <td>Репутация</td>
+              <td>Насколько тебе верят и продают со скидкой</td>
+            </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="card reveal">
+          <h3 class="card-title">Активная пауза</h3>
+          <p class="card-text">Останови время, составь план из макросов на каждого героя и запусти. Почти всегда
+            срабатывает. Почти.</p>
+          <p class="card-text">Комбинации навыков и позиционирование решают больше, чем чистый DPS.</p>
+        </article>
+      </div>
+
+      <div class="accordion" id="mechanics" aria-label="Механики системы">
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-1">Прокачка через использование
+          </button>
+          <div class="accordion-panel" id="acc-1">
+            <div class="accordion-content">
+              <p>Нет уровней и раздачи очков. Тренируешь меч — растёт «Меч». Таскаешь сундуки — становишься сильнее.
+                Делаешь зелья — учишься варить их лучше.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-2">Репутация и мораль</button>
+          <div class="accordion-panel" id="acc-2">
+            <div class="accordion-content">
+              <p>Каждый поступок идёт в «ферму того, как тебя помнят». Одни рынки закроются перед тобой, другие —
+                распахнутся. Моральные выборы здесь не галочка, а механика.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-3">Стихийное взаимодействие
+          </button>
+          <div class="accordion-panel" id="acc-3">
+            <div class="accordion-content">
+              <p>Мёд горит, кровь — топливо, магия — спичка. Поджигай логику мира и получай бонусы там, где их никто не
+                ждал.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="media" aria-labelledby="media-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-kicker">Визуал</span>
+        <h2 id="media-title">Арты и концепты</h2>
+        <p class="section-sub">Кликни по изображению, чтобы открыть его крупнее.</p>
+      </div>
+
+      <div class="gallery reveal">
+        <figure data-lightbox data-caption="Друид вступает в Верхний Лес">
+          <img src="img/gallery-1.jpg" alt="Друид на фоне древнего леса" loading="lazy">
+          <figcaption>Верхний Лес</figcaption>
+        </figure>
+        <figure data-lightbox data-caption="Изометрический бой у стен города">
+          <img src="img/gallery-2.jpg" alt="Изометрическая сцена боя у городских стен" loading="lazy">
+          <figcaption>Под стенами</figcaption>
+        </figure>
+        <figure data-lightbox data-caption="Лаборатория Ордена Мёда">
+          <img src="img/gallery-3.jpg" alt="Алхимическая лаборатория с колбами" loading="lazy">
+          <figcaption>Лаборатория Мёда</figcaption>
+        </figure>
+        <figure data-lightbox data-caption="Кровавый культ во время ритуала">
+          <img src="img/gallery-4.jpg" alt="Ритуал Кровавого культа в катакомбах" loading="lazy">
+          <figcaption>Катакомбы</figcaption>
+        </figure>
+        <figure data-lightbox data-caption="Железный двор наводит порядок">
+          <img src="img/gallery-5.jpg" alt="Инквизитор Железного двора" loading="lazy">
+          <figcaption>Инквизиция</figcaption>
+        </figure>
+        <figure data-lightbox data-caption="Храм старой магии">
+          <img src="img/gallery-6.jpg" alt="Древний кельтский храм с руной" loading="lazy">
+          <figcaption>Древний Храм</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Демо -->
+  <section class="section" id="demo" aria-labelledby="demo-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-kicker">Попробуй</span>
+        <h2 id="demo-title">Демо-прокачка на html-холсте</h2>
+        <p class="section-sub">Кликни по полю, чтобы «использовать» навык, и смотри, как растёт уровень за счёт действий
+          — совсем как в игре.</p>
+      </div>
+
+      <div class="demo-wrap reveal">
+        <canvas id="skill-demo" width="720" height="360" aria-label="Холст с демо-прокачкой навыка">Ваш браузер не
+          поддерживает canvas.
+        </canvas>
+        <div class="demo-stats" aria-live="polite">
+          <p class="demo-note">Мастерство: <strong id="demo-mastery">0</strong> · Уровень: <strong
+            id="demo-level">1</strong></p>
+        </div>
+        <p class="demo-note">Кликай по полю — каждое действие растит «Мастерство». Набей шкалу до конца и получи
+          уровень.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-kicker">Связь</span>
+        <h2 id="contact-title">Остались вопросы?</h2>
+        <p class="section-sub">Хочешь узнать больше о мире, фракциях или датах релиза — напиши нам.</p>
+      </div>
+
+      <form class="contact-form reveal" id="contact-form" novalidate>
+        <div>
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" required autocomplete="name" placeholder="Как к тебе обращаться">
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
+
+        <div>
+          <label for="topic">Тема</label>
+          <select id="topic" name="topic">
+            <option value="release">Дата релиза</option>
+            <option value="world">Мир и фракции</option>
+            <option value="beta">Закрытая бета</option>
+            <option value="other">Другое</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message">Сообщение</label>
+          <textarea id="message" name="message" rows="5" required placeholder="О чём поговорим?"></textarea>
+        </div>
+
+        <button class="btn btn--magic" type="submit">Отправить</button>
+        <p class="form-message" id="form-message" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- Футер -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <section aria-labelledby="footer-about-title">
+        <h3 id="footer-about-title">Кровь и Мёд</h3>
+        <p>Партийная RPG в духе классики и кельтского тэш-фэнтези. Сайт-визитка проекта.</p>
+      </section>
+
+      <nav aria-label="Навигация в подвале">
+        <h3>Разделы</h3>
+        <ul class="footer-links">
+          <li><a href="#about">Об игре</a></li>
+          <li><a href="#world">Мир</a></li>
+          <li><a href="#system">Система</a></li>
+          <li><a href="#media">Медиа</a></li>
+        </ul>
+      </nav>
+
+      <section aria-labelledby="footer-legal-title">
+        <h3 id="footer-legal-title">Правовое</h3>
+        <p>Некоммерческий учебный проект. Все персонажи вымышлены, совпадения случайны.</p>
+      </section>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Кровь и Мёд. Учебная работа по HTML/CSS.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
+  <div class="lightbox-overlay" data-lightbox-close></div>
+  <div class="lightbox-content">
+    <button class="lightbox-close" data-lightbox-close aria-label="Закрыть">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+// =============================================================
+//  Миксины
+// =============================================================
+
+@use 'variables' as *;
+@use 'sass:map';
+
+// Медиазапрос от брейкпоинта ($from — ключ из карты $breakpoints).
+@mixin respond($from) {
+  @if map.has-key($breakpoints, $from) {
+    @media (min-width: map.get($breakpoints, $from)) {
+      @content;
+    }
+  } @else {
+    @error 'Неизвестный брейкпоинт #{$from}.';
+  }
+}
+
+// Кнопка-«заклинание».
+@mixin button($bg: $color-accent, $fg: #17131f) {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  font-family: $font-display;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $fg;
+  background: $bg;
+  border: 1px solid transparent;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: transform $transition, box-shadow $transition, background $transition;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-glow;
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($color-accent-2, 0.6);
+    outline-offset: 2px;
+  }
+}
+
+// Карточка-панель с рамкой и скруглением.
+@mixin panel($pad: $space-4) {
+  background: $color-panel;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  padding: $pad;
+  box-shadow: $shadow-sm;
+}
+
+// Светящийся заголовок (акцентный цвет + свечение).
+@mixin glow-text($color: $color-accent) {
+  color: $color;
+  text-shadow: 0 0 18px rgba($color, 0.45);
+}
+
+// Убирает стандартные маркеры списка (для навигации).
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Точка-«якорь» для активных пунктов меню.
+@mixin active-dot($color: $color-accent) {
+  background: $color;
+  box-shadow: 0 0 12px rgba($color, 0.7);
+}

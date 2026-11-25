@@ -1,0 +1,378 @@
+// =============================================================
+//  Компоненты
+// =============================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'functions' as *;
+
+// ---------- Кнопки ----------
+.btn {
+  @include button;
+
+  &--ghost {
+    background: transparent;
+    color: $color-text;
+    border-color: $color-border;
+
+    &:hover {
+      background: rgba($color-text, 0.06);
+      box-shadow: none;
+    }
+  }
+
+  &--magic {
+    background: linear-gradient(90deg, $color-accent-2, $color-blood);
+    color: #fff;
+
+    &:hover {
+      box-shadow: 0 0 30px rgba($color-accent-2, 0.5);
+    }
+  }
+}
+
+// ---------- Карточки ----------
+.card {
+  @include panel;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  &-icon {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  &-title {
+    margin: 0;
+  }
+
+  &-text {
+    margin: 0;
+    color: $color-muted;
+  }
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: $space-4;
+  // Запас снизу: карточки в .reveal анимируются со сдвигом вниз,
+  // поэтому нужен визуальный воздух до следующего блока.
+  margin-bottom: $space-2;
+}
+
+.card--feature {
+  text-align: left;
+
+  .card-icon {
+    @include glow-text($color-accent-2);
+  }
+}
+
+// ---------- Табы ----------
+.tabs {
+  &-list {
+    display: flex;
+    gap: $space-2;
+    flex-wrap: wrap;
+    border-bottom: 1px solid $color-border;
+    padding-bottom: $space-2;
+    margin-bottom: $space-4;
+  }
+
+  &-btn {
+    @include button(transparent, $color-muted);
+    border: 1px solid $color-border;
+
+    &:hover {
+      background: rgba($color-text, 0.05);
+      box-shadow: none;
+    }
+
+    &[aria-selected='true'] {
+      color: $color-text;
+      border-color: $color-accent;
+    }
+  }
+
+  &-panel {
+    display: none;
+
+    &--active {
+      display: block;
+      animation: fade-in 0.35s $ease;
+    }
+  }
+
+  // Изображение + текст внутри панели фракции.
+  &-media {
+    margin: 0 0 $space-3;
+
+    img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: $radius-sm;
+      border: 1px solid $color-border;
+    }
+  }
+
+  &-body {
+    h3 {
+      margin-top: 0;
+    }
+
+    p {
+      margin: 0;
+      color: $color-muted;
+    }
+  }
+
+  // На планшете и десктопе картинка и текст в строку.
+  @include respond('md') {
+    &-panel--active {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: $space-4;
+      align-items: center;
+    }
+
+    &-media {
+      margin: 0;
+    }
+  }
+}
+
+// ---------- Аккордеон ----------
+.accordion {
+  // Отступ от сетки карточек выше: карточки в .reveal анимируются
+  // со сдвигом вниз, поэтому им нужен запас, чтобы не наезжать на блок ниже.
+  margin-top: $space-5;
+
+  &-item {
+    @include panel($space-3);
+    margin-bottom: $space-2;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  &-trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $space-2;
+    padding: $space-3;
+    background: transparent;
+    border: 0;
+    color: $color-text;
+    font-family: $font-display;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+
+    &::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: $color-accent;
+      transition: transform $transition;
+    }
+
+    &[aria-expanded='true']::after {
+      transform: rotate(45deg);
+    }
+  }
+
+  &-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s $ease;
+
+    .accordion-content {
+      padding: 0 $space-3 $space-3;
+      color: $color-muted;
+    }
+  }
+}
+
+// ---------- Галерея / лайтбокс ----------
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: $space-3;
+
+  figure {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: $radius-sm;
+    border: 1px solid $color-border;
+    transition: transform $transition, box-shadow $transition;
+  }
+
+  figure:hover img {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: $shadow-md;
+  }
+
+  figcaption {
+    margin-top: $space-1;
+    font-size: 0.85rem;
+    color: $color-muted;
+    text-align: center;
+  }
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: $space-4;
+
+  &--open {
+    display: flex;
+  }
+
+  &-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  &-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    width: 100%;
+    background: $color-panel;
+    border: 1px solid $color-border;
+    border-radius: $radius;
+    padding: $space-3;
+  }
+
+  img {
+    width: 100%;
+    border-radius: $radius-sm;
+  }
+
+  &-caption {
+    margin: $space-2 0 0;
+    text-align: center;
+    color: $color-muted;
+  }
+
+  &-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid $color-border;
+    background: $color-panel-2;
+    color: $color-text;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+}
+
+// ---------- Форма ----------
+.contact-form {
+  display: grid;
+  gap: $space-3;
+  max-width: 560px;
+
+  label {
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: $space-2 $space-3;
+    color: $color-text;
+    background: $color-bg;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    font-family: $font-body;
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: $color-accent;
+      box-shadow: 0 0 0 3px rgba($color-accent, 0.2);
+    }
+  }
+
+  .form-message {
+    font-size: 0.9rem;
+    min-height: 1.2em;
+
+    &--error {
+      color: $color-danger;
+    }
+
+    &--success {
+      color: $color-success;
+    }
+  }
+}
+
+// ---------- Canvas-демо ----------
+.demo-wrap {
+  @include panel;
+  display: grid;
+  gap: $space-3;
+  text-align: center;
+
+  canvas {
+    width: 100%;
+    max-width: 720px;
+    margin-inline: auto;
+    background: $color-bg;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    cursor: crosshair;
+  }
+
+  .demo-note {
+    color: $color-muted;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+// ---------- Таблица свойств ----------
+.feature-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: $space-3;
+
+  th,
+  td {
+    padding: $space-2 $space-3;
+    text-align: left;
+    border-bottom: 1px solid $color-border;
+  }
+
+  th {
+    color: $color-accent;
+    font-family: $font-display;
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "short_name": "Кровь и Мёд",
+  "name": "Кровь и Мёд — партийная RPG",
+  "icons": [{
+    "src": "icon.png",
+    "type": "image/png",
+    "sizes": "192x192"
+  }],
+  "start_url": "./",
+  "background_color": "#0d0a14",
+  "theme_color": "#0d0a14",
+  "display": "standalone"
+}

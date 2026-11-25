@@ -1,0 +1,109 @@
+// =============================================================
+//  Адаптивность: мобильная навигация, медиазапросы
+//  Mobile-first: база — мобильный бургер, десктоп — с планшета.
+// =============================================================
+
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ---------- Мобильная база (по умолчанию) ----------
+.burger {
+  display: inline-flex;
+}
+
+.main-nav {
+  position: fixed;
+  inset: 0;
+  z-index: $z-nav;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($color-bg, 0.97);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition, visibility $transition;
+
+  .menu {
+    flex-direction: column;
+    gap: $space-5;
+    text-align: center;
+  }
+
+  .menu-link {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    padding: $space-2 $space-3;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  // Открытое состояние — класс .is-open вешает JS.
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Кнопки hero на очень маленьких экранах.
+@include respond('sm') {
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+// ---------- Планшет и десктоп: горизонтальное меню ----------
+@include respond('md') {
+  .burger {
+    display: none;
+  }
+
+  .main-nav {
+    position: static;
+    inset: auto;
+    display: block;
+    background: transparent;
+    opacity: 1;
+    visibility: visible;
+    z-index: auto;
+    transition: none;
+
+    .menu {
+      flex-direction: row;
+      gap: $space-4;
+    }
+
+    .menu-link {
+      font-size: 1rem;
+      font-family: $font-body;
+      padding: $space-1 $space-2;
+
+      &::after {
+        display: block;
+      }
+    }
+  }
+}
+
+// ---------- Ретина и печать (из коробки) ----------
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Ретина: изображения-плейсхолдеры остаются как есть. */
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .burger,
+  .lightbox,
+  canvas {
+    display: none;
+  }
+}

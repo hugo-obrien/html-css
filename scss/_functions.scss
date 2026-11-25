@@ -1,0 +1,43 @@
+// =============================================================
+//  Собственные функции SassScript
+//  Модули sass:math (деление) и sass:map (работа с картами)
+// =============================================================
+
+@use 'variables' as *;
+@use 'sass:math';
+@use 'sass:map';
+
+// Переводит px в rem (базовый размер шрифта 16px).
+@function rem($px) {
+  @return math.div($px, 16px) * 1rem;
+}
+
+// Возвращает цвет по ключу из палитры (лёгкая защита от опечаток).
+@function palette($key) {
+  $colors: (
+    'bg': $color-bg,
+    'accent': $color-accent,
+    'accent-2': $color-accent-2,
+    'blood': $color-blood,
+    'text': $color-text,
+  );
+
+  @if map.has-key($colors, $key) {
+    @return map.get($colors, $key);
+  }
+
+  @error 'Неизвестный цвет #{$key} в палитре.';
+}
+
+// Микширует цвет с чёрным/белым (затемняет/осветляет) в процентах.
+@function shade($color, $amount) {
+  @return mix(black, $color, $amount);
+}
+
+// Контрастный цвет текста для заданного фона.
+@function text-on($bg) {
+  @if lightness($bg) > 60% {
+    @return #17131f;
+  }
+  @return $color-text;
+}
